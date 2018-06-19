@@ -39,7 +39,7 @@ namespace ConsoleApp
             using (var context = new NinjaContext())
             {
                 context.Database.Log = Console.WriteLine;
-                context.Ninjas.Remove(ninja);
+                context.Entry(ninja).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
