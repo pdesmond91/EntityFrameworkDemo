@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConnectedTradingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="PriceTicker" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProductGroupId" Type="int" Nullable="false" />
+          <Property Name="LotSize" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="PeriodResolution" Type="int" Nullable="false" />
+          <Property Name="ProductDefinitionId" Type="int" Nullable="false" />
+          <Property Name="ProductTypeId" Type="int" Nullable="false" />
+          <Property Name="IsBalance" Type="bit" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryFromDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryToDate" Type="datetime" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="WeeklyPatternId" Type="int" />
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductParentId" Type="int" />
+          <Property Name="SecondProductParentId" Type="int" />
+          <Property Name="NumberOfChildProducts" Type="int" Nullable="false" />
+          <Property Name="NumberOfGrandChildProducts" Type="int" Nullable="false" />
+          <Property Name="ToLocationId" Type="int" Nullable="false" />
+          <Property Name="FromLocationId" Type="int" />
+          <Property Name="CeaseDate" Type="datetime" Nullable="false" />
+          <Property Name="TradingFromDate" Type="datetime" Nullable="false" />
+          <Property Name="TradingToDate" Type="datetime" Nullable="false" />
+          <Property Name="OptionCeaseDate" Type="datetime" />
+          <Property Name="OptionTradingFrom" Type="datetime" />
+          <Property Name="OptionTradingTo" Type="datetime" />
+          <Property Name="OptionPriceTicker" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionNameFormat" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionCallName" Type="nvarchar" MaxLength="10" />
+          <Property Name="OptionPutName" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductTypeCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsinCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="AiiCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="CascadingLevel" Type="int" Nullable="false" />
+          <Property Name="TreeId" Type="bigint" />
+          <Property Name="ProductCategory" Type="int" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedTime" Type="datetime2" Precision="7" />
+          <Property Name="ExternalId" Type="int" />
+          <Property Name="EntityStatus" Type="int" Nullable="false" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="TimeZoneId" Type="nvarchar" MaxLength="512" />
+          <Property Name="NumberOfStrikeDecimals" Type="int" />
+          <Property Name="DeliveryCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="IgnoreDst" Type="bit" Nullable="false" />
+          <Property Name="FriendlyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ExternalName" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionFriendlyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionExternalName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FamiliyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionLogicalCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="LogicalCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="ClearerCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="InternalName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CommodityId" Type="int" Nullable="false" />
+          <Property Name="SpreadCommodityId" Type="int" />
+          <Property Name="SoftNumStrikeDecRule" Type="bit" />
+          <Property Name="Description" Type="nvarchar" MaxLength="512" />
+          <Property Name="OptionClearerCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="OptionIsinCode" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ProductDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Description" Type="nvarchar" MaxLength="512" />
+          <Property Name="ProductGroupId" Type="int" Nullable="false" />
+          <Property Name="ToLocationId" Type="int" Nullable="false" />
+          <Property Name="FromLocationId" Type="int" />
+          <Property Name="WeeklyPatternId" Type="int" />
+          <Property Name="PeriodResolution" Type="int" Nullable="false" />
+          <Property Name="LotUnitId" Type="int" Nullable="false" />
+          <Property Name="MarketSettlementType" Type="int" Nullable="false" />
+          <Property Name="DeliveryType" Type="int" Nullable="false" />
+          <Property Name="CloseOutType" Type="int" Nullable="false" />
+          <Property Name="CascadingType" Type="int" Nullable="false" />
+          <Property Name="TradeOrderType" Type="int" Nullable="false" />
+          <Property Name="AutoExerciseOption" Type="bit" Nullable="false" />
+          <Property Name="AlwaysAllowCascadingUpdate" Type="bit" Nullable="false" />
+          <Property Name="NumberOfPriceDecimals" Type="smallint" Nullable="false" />
+          <Property Name="NumberOfLotDecimals" Type="smallint" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="512" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="512" />
+          <Property Name="TimeZoneId" Type="nvarchar" MaxLength="512" />
+          <Property Name="DefinitionTypeCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="DefaultPriceUnitId" Type="int" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedTime" Type="datetime2" Precision="7" />
+          <Property Name="ExternalId" Type="int" />
+          <Property Name="EntityStatus" Type="int" Nullable="false" />
+          <Property Name="IndeliveryPriceModelId" Type="int" />
+          <Property Name="LotSize" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="MarketSettlementOptionType" Type="int" Nullable="false" />
+          <Property Name="NoUnrealisedInDelivery" Type="bit" Nullable="false" />
+          <Property Name="ProductCategory" Type="int" Nullable="false" />
+          <Property Name="OptionExerciseType" Type="int" Nullable="false" />
+          <Property Name="SupportOption" Type="bit" Nullable="false" />
+          <Property Name="IgnoreDst" Type="bit" Nullable="false" />
+          <Property Name="InstrumentType" Type="int" Nullable="false" />
+          <Property Name="CommodityId" Type="int" Nullable="false" />
+          <Property Name="SpreadCommodityId" Type="int" />
+          <Property Name="SplittingResolution" Type="int" />
+          <Property Name="PositionTypeId" Type="int" />
+          <Property Name="OptionPremiumType" Type="int" Nullable="false" />
+          <Property Name="ClearingGroupId" Type="int" />
+          <Property Name="InternalName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LoadType" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpecificationUrl" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductDefinitionTree">
+          <Key>
+            <PropertyRef Name="ProductTypeId" />
+            <PropertyRef Name="ProductCascadingLevel" />
+            <PropertyRef Name="ProductDefinitionId" />
+          </Key>
+          <Property Name="ProductTypeId" Type="int" Nullable="false" />
+          <Property Name="ProductCascadingLevel" Type="int" Nullable="false" />
+          <Property Name="ProductDefinitionId" Type="int" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProductGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="ExternalCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="250" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreatedTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedTime" Type="datetime2" Precision="7" />
+          <Property Name="ExternalId" Type="int" />
+          <Property Name="EntityStatus" Type="int" Nullable="false" />
+          <Property Name="DefaultPriceUnitId" Type="int" />
+          <Property Name="ExchangeId" Type="int" Nullable="false" />
+          <Property Name="CommodityId" Type="int" Nullable="false" />
+          <Property Name="TimeZoneId" Type="nvarchar" MaxLength="512" />
+        </EntityType>
+        <Association Name="FK_dbo_Product_dbo_Market_MarketId">
+          <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_Product_ProductParentId">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_Product_SecondProductParentId">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="SecondProductParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId">
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ProductDefinition_dbo_Market_MarketId">
+          <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="1" />
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductDefinition">
+              <PropertyRef Name="ProductGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId">
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="1" />
+          <End Role="ProductDefinitionTree" Type="Self.ProductDefinitionTree" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductDefinitionTree">
+              <PropertyRef Name="ProductDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConnectedTradingModelStoreContainer">
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDefinition" EntityType="Self.ProductDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDefinitionTree" EntityType="Self.ProductDefinitionTree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductGroup" EntityType="Self.ProductGroup" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Product_dbo_Market_MarketId" Association="Self.FK_dbo_Product_dbo_Market_MarketId">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_Product_ProductParentId" Association="Self.FK_dbo_Product_dbo_Product_ProductParentId">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product1" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_Product_SecondProductParentId" Association="Self.FK_dbo_Product_dbo_Product_SecondProductParentId">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product1" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId" Association="Self.FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId">
+            <End Role="ProductDefinition" EntitySet="ProductDefinition" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ProductDefinition_dbo_Market_MarketId" Association="Self.FK_dbo_ProductDefinition_dbo_Market_MarketId">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="ProductDefinition" EntitySet="ProductDefinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId" Association="Self.FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId">
+            <End Role="ProductDefinition" EntitySet="ProductDefinition" />
+            <End Role="ProductDefinitionTree" EntitySet="ProductDefinitionTree" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConnectedTradingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PriceTicker" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroupId" Type="Int32" Nullable="false" />
+          <Property Name="LotSize" Type="Decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="PeriodResolution" Type="Int32" Nullable="false" />
+          <Property Name="ProductDefinitionId" Type="Int32" Nullable="false" />
+          <Property Name="ProductTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsBalance" Type="Boolean" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryFromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="WeeklyPatternId" Type="Int32" />
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductParentId" Type="Int32" />
+          <Property Name="SecondProductParentId" Type="Int32" />
+          <Property Name="NumberOfChildProducts" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfGrandChildProducts" Type="Int32" Nullable="false" />
+          <Property Name="ToLocationId" Type="Int32" Nullable="false" />
+          <Property Name="FromLocationId" Type="Int32" />
+          <Property Name="CeaseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TradingFromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TradingToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OptionCeaseDate" Type="DateTime" Precision="3" />
+          <Property Name="OptionTradingFrom" Type="DateTime" Precision="3" />
+          <Property Name="OptionTradingTo" Type="DateTime" Precision="3" />
+          <Property Name="OptionPriceTicker" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionNameFormat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionCallName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OptionPutName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductTypeCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsinCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AiiCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CascadingLevel" Type="Int32" Nullable="false" />
+          <Property Name="TreeId" Type="Int64" />
+          <Property Name="ProductCategory" Type="Int32" Nullable="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="7" />
+          <Property Name="ExternalId" Type="Int32" />
+          <Property Name="EntityStatus" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="TimeZoneId" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfStrikeDecimals" Type="Int32" />
+          <Property Name="DeliveryCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IgnoreDst" Type="Boolean" Nullable="false" />
+          <Property Name="FriendlyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionFriendlyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionExternalName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FamiliyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionLogicalCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LogicalCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ClearerCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="InternalName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CommodityId" Type="Int32" Nullable="false" />
+          <Property Name="SpreadCommodityId" Type="Int32" />
+          <Property Name="SoftNumStrikeDecRule" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="OptionClearerCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OptionIsinCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductGroup" Relationship="Self.FK_dbo_Product_dbo_Market_MarketId" FromRole="Product" ToRole="ProductGroup" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_dbo_Product_dbo_Product_ProductParentId" FromRole="Product" ToRole="Product1" />
+          <NavigationProperty Name="Product2" Relationship="Self.FK_dbo_Product_dbo_Product_ProductParentId" FromRole="Product1" ToRole="Product" />
+          <NavigationProperty Name="Product11" Relationship="Self.FK_dbo_Product_dbo_Product_SecondProductParentId" FromRole="Product" ToRole="Product1" />
+          <NavigationProperty Name="Product3" Relationship="Self.FK_dbo_Product_dbo_Product_SecondProductParentId" FromRole="Product1" ToRole="Product" />
+          <NavigationProperty Name="ProductDefinition" Relationship="Self.FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId" FromRole="Product" ToRole="ProductDefinition" />
+        </EntityType>
+        <EntityType Name="ProductDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroupId" Type="Int32" Nullable="false" />
+          <Property Name="ToLocationId" Type="Int32" Nullable="false" />
+          <Property Name="FromLocationId" Type="Int32" />
+          <Property Name="WeeklyPatternId" Type="Int32" />
+          <Property Name="PeriodResolution" Type="Int32" Nullable="false" />
+          <Property Name="LotUnitId" Type="Int32" Nullable="false" />
+          <Property Name="MarketSettlementType" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryType" Type="Int32" Nullable="false" />
+          <Property Name="CloseOutType" Type="Int32" Nullable="false" />
+          <Property Name="CascadingType" Type="Int32" Nullable="false" />
+          <Property Name="TradeOrderType" Type="Int32" Nullable="false" />
+          <Property Name="AutoExerciseOption" Type="Boolean" Nullable="false" />
+          <Property Name="AlwaysAllowCascadingUpdate" Type="Boolean" Nullable="false" />
+          <Property Name="NumberOfPriceDecimals" Type="Int16" Nullable="false" />
+          <Property Name="NumberOfLotDecimals" Type="Int16" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Sector" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneId" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="DefinitionTypeCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultPriceUnitId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="7" />
+          <Property Name="ExternalId" Type="Int32" />
+          <Property Name="EntityStatus" Type="Int32" Nullable="false" />
+          <Property Name="IndeliveryPriceModelId" Type="Int32" />
+          <Property Name="LotSize" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="MarketSettlementOptionType" Type="Int32" Nullable="false" />
+          <Property Name="NoUnrealisedInDelivery" Type="Boolean" Nullable="false" />
+          <Property Name="ProductCategory" Type="Int32" Nullable="false" />
+          <Property Name="OptionExerciseType" Type="Int32" Nullable="false" />
+          <Property Name="SupportOption" Type="Boolean" Nullable="false" />
+          <Property Name="IgnoreDst" Type="Boolean" Nullable="false" />
+          <Property Name="InstrumentType" Type="Int32" Nullable="false" />
+          <Property Name="CommodityId" Type="Int32" Nullable="false" />
+          <Property Name="SpreadCommodityId" Type="Int32" />
+          <Property Name="SplittingResolution" Type="Int32" />
+          <Property Name="PositionTypeId" Type="Int32" />
+          <Property Name="OptionPremiumType" Type="Int32" Nullable="false" />
+          <Property Name="ClearingGroupId" Type="Int32" />
+          <Property Name="InternalName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LoadType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpecificationUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId" FromRole="ProductDefinition" ToRole="Product" />
+          <NavigationProperty Name="ProductGroup" Relationship="Self.FK_dbo_ProductDefinition_dbo_Market_MarketId" FromRole="ProductDefinition" ToRole="ProductGroup" />
+          <NavigationProperty Name="ProductDefinitionTrees" Relationship="Self.FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId" FromRole="ProductDefinition" ToRole="ProductDefinitionTree" />
+        </EntityType>
+        <EntityType Name="ProductDefinitionTree">
+          <Key>
+            <PropertyRef Name="ProductTypeId" />
+            <PropertyRef Name="ProductCascadingLevel" />
+            <PropertyRef Name="ProductDefinitionId" />
+          </Key>
+          <Property Name="ProductTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ProductCascadingLevel" Type="Int32" Nullable="false" />
+          <Property Name="ProductDefinitionId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ProductDefinition" Relationship="Self.FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId" FromRole="ProductDefinitionTree" ToRole="ProductDefinition" />
+        </EntityType>
+        <EntityType Name="ProductGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Sector" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="7" />
+          <Property Name="ExternalId" Type="Int32" />
+          <Property Name="EntityStatus" Type="Int32" Nullable="false" />
+          <Property Name="DefaultPriceUnitId" Type="Int32" />
+          <Property Name="ExchangeId" Type="Int32" Nullable="false" />
+          <Property Name="CommodityId" Type="Int32" Nullable="false" />
+          <Property Name="TimeZoneId" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Product_dbo_Market_MarketId" FromRole="ProductGroup" ToRole="Product" />
+          <NavigationProperty Name="ProductDefinitions" Relationship="Self.FK_dbo_ProductDefinition_dbo_Market_MarketId" FromRole="ProductGroup" ToRole="ProductDefinition" />
+        </EntityType>
+        <Association Name="FK_dbo_Product_dbo_Market_MarketId">
+          <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_Product_ProductParentId">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_Product_SecondProductParentId">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="SecondProductParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId">
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ProductDefinition_dbo_Market_MarketId">
+          <End Role="ProductGroup" Type="Self.ProductGroup" Multiplicity="1" />
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductDefinition">
+              <PropertyRef Name="ProductGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId">
+          <End Role="ProductDefinition" Type="Self.ProductDefinition" Multiplicity="1" />
+          <End Role="ProductDefinitionTree" Type="Self.ProductDefinitionTree" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductDefinitionTree">
+              <PropertyRef Name="ProductDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConnectedTradingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductDefinitions" EntityType="Self.ProductDefinition" />
+          <EntitySet Name="ProductDefinitionTrees" EntityType="Self.ProductDefinitionTree" />
+          <EntitySet Name="ProductGroups" EntityType="Self.ProductGroup" />
+          <AssociationSet Name="FK_dbo_Product_dbo_Market_MarketId" Association="Self.FK_dbo_Product_dbo_Market_MarketId">
+            <End Role="ProductGroup" EntitySet="ProductGroups" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_Product_ProductParentId" Association="Self.FK_dbo_Product_dbo_Product_ProductParentId">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Product1" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_Product_SecondProductParentId" Association="Self.FK_dbo_Product_dbo_Product_SecondProductParentId">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Product1" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId" Association="Self.FK_dbo_Product_dbo_ProductDefinition_ProductDefinitionId">
+            <End Role="ProductDefinition" EntitySet="ProductDefinitions" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ProductDefinition_dbo_Market_MarketId" Association="Self.FK_dbo_ProductDefinition_dbo_Market_MarketId">
+            <End Role="ProductGroup" EntitySet="ProductGroups" />
+            <End Role="ProductDefinition" EntitySet="ProductDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId" Association="Self.FK_dbo_ProductDefinitionTree_dbo_ProductDefinition_ProductDefinitionId">
+            <End Role="ProductDefinition" EntitySet="ProductDefinitions" />
+            <End Role="ProductDefinitionTree" EntitySet="ProductDefinitionTrees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConnectedTradingModelStoreContainer" CdmEntityContainer="ConnectedTradingEntities">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ConnectedTradingModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PriceTicker" ColumnName="PriceTicker" />
+                <ScalarProperty Name="ProductGroupId" ColumnName="ProductGroupId" />
+                <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+                <ScalarProperty Name="PeriodResolution" ColumnName="PeriodResolution" />
+                <ScalarProperty Name="ProductDefinitionId" ColumnName="ProductDefinitionId" />
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="IsBalance" ColumnName="IsBalance" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="DeliveryFromDate" ColumnName="DeliveryFromDate" />
+                <ScalarProperty Name="DeliveryToDate" ColumnName="DeliveryToDate" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="WeeklyPatternId" ColumnName="WeeklyPatternId" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductParentId" ColumnName="ProductParentId" />
+                <ScalarProperty Name="SecondProductParentId" ColumnName="SecondProductParentId" />
+                <ScalarProperty Name="NumberOfChildProducts" ColumnName="NumberOfChildProducts" />
+                <ScalarProperty Name="NumberOfGrandChildProducts" ColumnName="NumberOfGrandChildProducts" />
+                <ScalarProperty Name="ToLocationId" ColumnName="ToLocationId" />
+                <ScalarProperty Name="FromLocationId" ColumnName="FromLocationId" />
+                <ScalarProperty Name="CeaseDate" ColumnName="CeaseDate" />
+                <ScalarProperty Name="TradingFromDate" ColumnName="TradingFromDate" />
+                <ScalarProperty Name="TradingToDate" ColumnName="TradingToDate" />
+                <ScalarProperty Name="OptionCeaseDate" ColumnName="OptionCeaseDate" />
+                <ScalarProperty Name="OptionTradingFrom" ColumnName="OptionTradingFrom" />
+                <ScalarProperty Name="OptionTradingTo" ColumnName="OptionTradingTo" />
+                <ScalarProperty Name="OptionPriceTicker" ColumnName="OptionPriceTicker" />
+                <ScalarProperty Name="OptionNameFormat" ColumnName="OptionNameFormat" />
+                <ScalarProperty Name="OptionCallName" ColumnName="OptionCallName" />
+                <ScalarProperty Name="OptionPutName" ColumnName="OptionPutName" />
+                <ScalarProperty Name="ProductTypeCode" ColumnName="ProductTypeCode" />
+                <ScalarProperty Name="IsinCode" ColumnName="IsinCode" />
+                <ScalarProperty Name="AiiCode" ColumnName="AiiCode" />
+                <ScalarProperty Name="CascadingLevel" ColumnName="CascadingLevel" />
+                <ScalarProperty Name="TreeId" ColumnName="TreeId" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="EntityStatus" ColumnName="EntityStatus" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="NumberOfStrikeDecimals" ColumnName="NumberOfStrikeDecimals" />
+                <ScalarProperty Name="DeliveryCode" ColumnName="DeliveryCode" />
+                <ScalarProperty Name="IgnoreDst" ColumnName="IgnoreDst" />
+                <ScalarProperty Name="FriendlyName" ColumnName="FriendlyName" />
+                <ScalarProperty Name="ExternalName" ColumnName="ExternalName" />
+                <ScalarProperty Name="OptionFriendlyName" ColumnName="OptionFriendlyName" />
+                <ScalarProperty Name="OptionExternalName" ColumnName="OptionExternalName" />
+                <ScalarProperty Name="FamiliyName" ColumnName="FamiliyName" />
+                <ScalarProperty Name="OptionLogicalCode" ColumnName="OptionLogicalCode" />
+                <ScalarProperty Name="LogicalCode" ColumnName="LogicalCode" />
+                <ScalarProperty Name="ClearerCode" ColumnName="ClearerCode" />
+                <ScalarProperty Name="InternalName" ColumnName="InternalName" />
+                <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+                <ScalarProperty Name="SpreadCommodityId" ColumnName="SpreadCommodityId" />
+                <ScalarProperty Name="SoftNumStrikeDecRule" ColumnName="SoftNumStrikeDecRule" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OptionClearerCode" ColumnName="OptionClearerCode" />
+                <ScalarProperty Name="OptionIsinCode" ColumnName="OptionIsinCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDefinitions">
+            <EntityTypeMapping TypeName="ConnectedTradingModel.ProductDefinition">
+              <MappingFragment StoreEntitySet="ProductDefinition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProductGroupId" ColumnName="ProductGroupId" />
+                <ScalarProperty Name="ToLocationId" ColumnName="ToLocationId" />
+                <ScalarProperty Name="FromLocationId" ColumnName="FromLocationId" />
+                <ScalarProperty Name="WeeklyPatternId" ColumnName="WeeklyPatternId" />
+                <ScalarProperty Name="PeriodResolution" ColumnName="PeriodResolution" />
+                <ScalarProperty Name="LotUnitId" ColumnName="LotUnitId" />
+                <ScalarProperty Name="MarketSettlementType" ColumnName="MarketSettlementType" />
+                <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+                <ScalarProperty Name="CloseOutType" ColumnName="CloseOutType" />
+                <ScalarProperty Name="CascadingType" ColumnName="CascadingType" />
+                <ScalarProperty Name="TradeOrderType" ColumnName="TradeOrderType" />
+                <ScalarProperty Name="AutoExerciseOption" ColumnName="AutoExerciseOption" />
+                <ScalarProperty Name="AlwaysAllowCascadingUpdate" ColumnName="AlwaysAllowCascadingUpdate" />
+                <ScalarProperty Name="NumberOfPriceDecimals" ColumnName="NumberOfPriceDecimals" />
+                <ScalarProperty Name="NumberOfLotDecimals" ColumnName="NumberOfLotDecimals" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="DefinitionTypeCode" ColumnName="DefinitionTypeCode" />
+                <ScalarProperty Name="DefaultPriceUnitId" ColumnName="DefaultPriceUnitId" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="EntityStatus" ColumnName="EntityStatus" />
+                <ScalarProperty Name="IndeliveryPriceModelId" ColumnName="IndeliveryPriceModelId" />
+                <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="MarketSettlementOptionType" ColumnName="MarketSettlementOptionType" />
+                <ScalarProperty Name="NoUnrealisedInDelivery" ColumnName="NoUnrealisedInDelivery" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="OptionExerciseType" ColumnName="OptionExerciseType" />
+                <ScalarProperty Name="SupportOption" ColumnName="SupportOption" />
+                <ScalarProperty Name="IgnoreDst" ColumnName="IgnoreDst" />
+                <ScalarProperty Name="InstrumentType" ColumnName="InstrumentType" />
+                <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+                <ScalarProperty Name="SpreadCommodityId" ColumnName="SpreadCommodityId" />
+                <ScalarProperty Name="SplittingResolution" ColumnName="SplittingResolution" />
+                <ScalarProperty Name="PositionTypeId" ColumnName="PositionTypeId" />
+                <ScalarProperty Name="OptionPremiumType" ColumnName="OptionPremiumType" />
+                <ScalarProperty Name="ClearingGroupId" ColumnName="ClearingGroupId" />
+                <ScalarProperty Name="InternalName" ColumnName="InternalName" />
+                <ScalarProperty Name="LoadType" ColumnName="LoadType" />
+                <ScalarProperty Name="SpecificationUrl" ColumnName="SpecificationUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDefinitionTrees">
+            <EntityTypeMapping TypeName="ConnectedTradingModel.ProductDefinitionTree">
+              <MappingFragment StoreEntitySet="ProductDefinitionTree">
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="ProductCascadingLevel" ColumnName="ProductCascadingLevel" />
+                <ScalarProperty Name="ProductDefinitionId" ColumnName="ProductDefinitionId" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductGroups">
+            <EntityTypeMapping TypeName="ConnectedTradingModel.ProductGroup">
+              <MappingFragment StoreEntitySet="ProductGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ExternalCode" ColumnName="ExternalCode" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="EntityStatus" ColumnName="EntityStatus" />
+                <ScalarProperty Name="DefaultPriceUnitId" ColumnName="DefaultPriceUnitId" />
+                <ScalarProperty Name="ExchangeId" ColumnName="ExchangeId" />
+                <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
